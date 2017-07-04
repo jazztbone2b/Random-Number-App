@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf8">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="RandomNumberApp.css">
+    <script src="RandomNumberApp.js"></script>
+
+    <title>Random Number Guesser</title>
+  </head>
+  
+  <body onload='createNumber();'>
+    
+    <center> <h2>Guess the correct number!</h2></center>
+    
+    <div class="box">
+      
+     <div> <h4>Type a number from 0-10 in the box and see if you guessed right: <br><br>
+       <center><input id='input' type="number" min=0 max=10></input></center></h4>
+      
+      <center><button class="button" id="clickhere" onclick="clickMe();">Click me to check your answer</button></center>
+    
+    <div class="box2">
+    <h2 id='guess'></h2>
+      </div>
+      
+      <center> <button onclick='changeBack();' id='tryagain'>Click me to try again</button> </center>
+    
+    </div>
+    
+  </div>
+
+</body>
+  
+</html>
