@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf8">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="RandomNumberApp.css">
+    <script src="RandomNumberApp.js"></script>
+
+    <title>Random Number Guesser</title>
+  </head>
+  
+  <style>
+  body{
+  background: linear-gradient(to bottom right, #2EA4D8, #17459D);
+  font-family: 'Gloria Hallelujah', cursive;
+} 
+
+.box{
+  width: 400px;
+  height: 510px;
+  border: solid white 5px;
+  border-radius: 30px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 10px black;
+}
+
+@media only screen and (max-width: 800px){
+  .box{
+    width: 375px;
+    height: 510px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+h4{
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.box2{
+  height: 200px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+#clickhere{
+  font-family: 'Gloria Hallelujah', cursive;
+  box-shadow: 3px 3px 3px black;
+  border-radius: 10px;
+}
+#tryagain{
+  font-family: 'Gloria Hallelujah', cursive;
+  box-shadow: 3px 3px 3px black;
+  border-radius: 10px;
+}
+#input{
+  width: 50px;
+  box-shadow: 3px 3px 3px black;
+  border-radius: 10px;
+}
+</style>
+
+  <body onload='createNumber();'>
+    
+    <center> <h2>Guess the correct number!</h2></center>
+    
+    <div class="box">
+      
+     <div> <h4>Type a number from 0-10 in the box and see if you guessed right: <br><br>
+       <center><input id='input' type="number" min=0 max=10></input></center></h4>
+      
+      <center><button class="button" id="clickhere" onclick="clickMe();">Click me to check your answer</button></center>
+    
+    <div class="box2">
+    <h2 id='guess'></h2>
+      </div>
+      
+      <center> <button onclick='changeBack();' id='tryagain'>Click me to try again</button> </center>
+    
+    </div>
+    
+  </div>
+
+<script>
+
+//var randomNum will set the value of the random number
+var randomNum= Math.round(10*Math.random());
+
+//logs the random generated number to the console, to be checked on clickMe() function
+function createNumber(){
+  console.log(randomNum);
+}
+
+
+function clickMe(){
+  var x = document.getElementById('input').value;
+  if (x > 10 || x < 0){
+    alert('Your phone now has a virus. Try again stupid');
+  }
+  else if(x == randomNum){
+  document.getElementById('guess').innerHTML = "You win!<img src='http://media3.giphy.com/media/YC6ZedMDgR1Fm/giphy.gif' style='height:200px'>";
+    var y = document.getElementById('tryagain').innerHTML = "Play again";
+  } else{
+  document.getElementById('guess').innerHTML = "Don't be a Toby...<img src='http://38.media.tumblr.com/9eb3b221d713dd539e14459a2854fc8d/tumblr_n7o74nylkS1qiiroso1_500.gif' style='height:200px'>";
+  }
+}
+
+function changeBack(){
+  var x = document.getElementById('input').value;
+  
+  if (x == randomNum){
+  document.getElementById('tryagain').innerHTML = 'Click me to try again';
+  location.reload(true);
+   } else{
+  document.getElementById('input').value = ' ';
+  document.getElementById('guess').innerHTML = ' ';
+   } 
+}
+</script>
+
+</body>
+  
+</html>
